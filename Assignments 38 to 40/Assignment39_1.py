@@ -1,0 +1,38 @@
+import pandas
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn.model_selection import train_test_split
+
+df=pandas.read_csv("student_performance.csv")
+
+Festures=[
+    "StudyHours",
+    "Attendance",
+    "PreviousScore",
+    "AssignmentsCompleted",
+    "SleepHours",
+]
+
+X=df[Festures]
+Y=df["FinalResult"]
+
+print("X shape :", X.shape)
+print("Y shape :",Y.shape)
+
+X_train, X_test , Y_train, Y_test=train_test_split(
+    X,
+    Y,
+    test_size=0.2,
+    random_state=42
+)
+
+model=DecisionTreeClassifier(
+    criterion="gini",
+    max_depth=3,
+    random_state=42
+)
+
+model.fit(X_train,Y_train)
+
+print("model training completed")
