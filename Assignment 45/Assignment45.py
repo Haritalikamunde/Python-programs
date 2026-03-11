@@ -60,10 +60,6 @@ def MarvellousClassifier(DataPath):
     # Step 3 : Train the model
     #--------------------------------------------------------
 
-    print(border)
-    print("Step 3 : Train the model")
-    print(border)
-
     model=LinearRegression()
     model.fit(X_train, Y_train)
 
@@ -90,7 +86,7 @@ def MarvellousClassifier(DataPath):
 def main():
     border="-"*40
     print(border)
-    print("Wine classifier using KNN")
+    print("Wine classifier")
     print(border)
 
     MarvellousClassifier("WinePredictor.csv")
